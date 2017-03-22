@@ -4,7 +4,7 @@ angular.
 module('phoneList').
 component('phoneList',
 {
-    template:'phone-list/phone-list.template.html',
+    templateUrl:'phone-list/phone-list.template.html',
     controller: function PhoneListController(){
         this.phones = [
         {

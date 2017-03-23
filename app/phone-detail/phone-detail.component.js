@@ -1,9 +1,13 @@
 angular.module('phoneDetail').component('phoneDetail',{
-    templateUrl: 'TBD: Detail view for <span>{{$ctrl.phoneId}}</span>',
-    controller: ['$routeParams', PhoneDetailController]
+    templateUrl: 'phone-detail/phone-detail.template.html',
+    controller: ['$http','$routeParams', PhoneDetailController]
 });
 
-function PhoneDetailController($routeParams)
+function PhoneDetailController($http,$routeParams)
 {
-    this.phoneId = $routeParams.phoneId;
+    var self = this;
+    
+    $http.get('phones/'+ $routeParams.phoneId + '.json').then(function(response){
+        self.phone = response.data;
+    });
 }
